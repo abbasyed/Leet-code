@@ -17,7 +17,7 @@ class Solution(object):
         return True
 
     #helper function
-    def alnum(self, c):
+    def alphaNum(self, c):
         return (ord("A") <= ord(c) <= ord("Z") or
         ord("a") <= ord(c) <= ord("z") or 
         ord("0") <= ord(c) <= ord("9"))
