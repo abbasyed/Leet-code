@@ -3,7 +3,14 @@ class Solution:
         
         flattened_list = [item for sublist in matrix for item in sublist]
 
-        for i in flattened_list:
-            if target in flattened_list:
+        low = 0
+        high = len(flattened_list) - 1
+        while low <= high:
+            mid = (high + low) // 2
+            if flattened_list[mid] == target:
                 return True
-            return False
+            elif flattened_list[mid] > target:
+                high = mid - 1
+            else:
+                low = mid+1
+        return False
