@@ -24,11 +24,11 @@ class Solution:
         curr = head
 
         while curr:
-            
+            # Store next node before we change current.next
             next_tmp = curr.next
-            
+            # Reverse the link
             curr.next = prev
-
+            # Move pointers one position ahead
             prev = curr
             curr = next_tmp
 
