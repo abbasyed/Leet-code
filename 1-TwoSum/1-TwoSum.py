@@ -4,7 +4,7 @@ class Solution:
         hashMap = {}
 
         for i, num in enumerate(nums):
-            diff = target - nums[i]
+            diff = target - num
             if diff in hashMap:
                 return [hashMap[diff], i]
             hashMap[num] = i
