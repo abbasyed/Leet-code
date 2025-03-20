@@ -27,7 +27,7 @@ class Solution:
             if l1: l1 = l1.next
             if l2: l2 = l2.next
         
-        # add carry if > 0
+        # If there's a carry left, add one more node 
         if carry > 0:
             current.next = ListNode(carry)
 
