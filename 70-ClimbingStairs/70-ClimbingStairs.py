@@ -1,4 +1,4 @@
-# Last updated: 3/23/2025, 2:47:15 AM
+# Last updated: 3/23/2025, 2:50:18 AM
 class Solution:
     def climbStairs(self, n: int) -> int:
         
@@ -6,11 +6,11 @@ class Solution:
             return 1
 
         prev1 = 1
-        prev2 = 2
+        prev2 = 1
 
         for i in range(2, n+1):
             curr = prev1 + prev2
             prev1 = prev2
             prev2 = curr
         
-        return prev1
+        return prev2
