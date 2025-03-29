@@ -1,4 +1,4 @@
-# Last updated: 3/23/2025, 2:50:18 AM
+# Last updated: 3/29/2025, 3:22:09 AM
 class Solution:
     def climbStairs(self, n: int) -> int:
         
