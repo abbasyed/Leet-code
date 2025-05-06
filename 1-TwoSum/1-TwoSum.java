@@ -1,15 +1,17 @@
-// Last updated: 5/5/2025, 9:26:22 PM
+// Last updated: 5/5/2025, 11:30:36 PM
 class Solution {
-    public int[] twoSum(int[] nums, int target) {
-        HashMap<Integer, Integer> result = new HashMap<>();
+    public int maxProfit(int[] prices) {
+        int maxP = 0;
+        int l = 0;
+        int r = l + 1;
 
-        for (int i = 0; i < nums.length; i++) {
-            int diff = target - nums[i];
-            if (result.containsKey(diff)) {
-                return new int[] { result.get(diff), i };
-            } else {
-                result.put(nums[i], i);
-            }
-        }return new int[] {};
+        while(r < prices.length){
+            if(prices[l] < prices[r]){
+                int profit = prices[r] - prices[l];
+                maxP = Math.max(maxP, profit);
+            }else{
+                l = r;
+            } r++;
+        }return maxP;
     }
 }
