@@ -1,15 +1,17 @@
-// Last updated: 5/7/2025, 11:22:08 PM
+// Last updated: 5/7/2025, 11:27:49 PM
 class Solution {
-    public String longestCommonPrefix(String[] strs) {
-        // base case:
-        if(strs.length == 0 || strs == null) return "";
+    public int[] productExceptSelf(int[] nums) {
+        int [] res = new int[nums.length];
 
-        String prefix = strs[0];
-        for(String s: strs){
-            while(!s.startsWith(prefix)){
-                prefix = prefix.substring(0, prefix.length()-1);
-                if(prefix.isEmpty()) return "";
-            }
-        }return prefix;
+        int prefix = 1;
+        for (int i=0; i<nums.length; i++){
+            res[i] = prefix;
+            prefix *= nums[i];
+        }
+        int suffix = 1;
+        for (int i = nums.length -1; i >= 0; i--){
+            res[i] *= suffix;
+            suffix *= nums[i];
+        }return res;
     }
 }
