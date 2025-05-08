@@ -1,14 +1,15 @@
-// Last updated: 5/7/2025, 8:56:36 PM
+// Last updated: 5/7/2025, 11:07:19 PM
 class Solution {
-    public boolean isAnagram(String s, String t) {
-        if (s.length() != t.length()) return false;
+    public void reverseString(char[] s) {
+        int left = 0;
+        int right = s.length- 1;
 
-        char [] sChar = s.toCharArray();
-        char [] tChar = t.toCharArray();
-
-        Arrays.sort(sChar);
-        Arrays.sort(tChar);
-
-        return Arrays.equals(sChar, tChar);
+        while (left < right){
+            char temp = s[left];
+            s[left] = s[right];
+            s[right] = temp;
+            left++;
+            right--;
+        }
     }
 }
