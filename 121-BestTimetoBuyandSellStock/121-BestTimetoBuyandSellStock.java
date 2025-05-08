@@ -1,14 +1,14 @@
-// Last updated: 5/7/2025, 8:33:22 PM
+// Last updated: 5/7/2025, 8:56:36 PM
 class Solution {
-    public int removeDuplicates(int[] nums) {
-        if (nums.length == 0){
-            return 0;
-        }
-        int uniqueIndex = 1;
-        for (int i = 1; i < nums.length; i++){
-            if(nums[i] != nums[uniqueIndex-1]){
-                nums[uniqueIndex++] = nums[i]; 
-            }
-        }return uniqueIndex;
+    public boolean isAnagram(String s, String t) {
+        if (s.length() != t.length()) return false;
+
+        char [] sChar = s.toCharArray();
+        char [] tChar = t.toCharArray();
+
+        Arrays.sort(sChar);
+        Arrays.sort(tChar);
+
+        return Arrays.equals(sChar, tChar);
     }
 }
