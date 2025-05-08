@@ -1,19 +1,14 @@
-// Last updated: 5/7/2025, 8:08:39 PM
+// Last updated: 5/7/2025, 8:33:22 PM
 class Solution {
-    public int maxProfit(int[] prices) {
-        int maxP = 0;
-        int l = 0;
-        int r = l + 1;
-
-        while (r < prices.length) {
-            if (prices[l] < prices[r]) {
-                int profit = prices[r] - prices[l];
-                maxP = Math.max(maxP, profit);
-            } else {
-                l = r;
-            }
-            r++;
+    public int removeDuplicates(int[] nums) {
+        if (nums.length == 0){
+            return 0;
         }
-        return maxP;
+        int uniqueIndex = 1;
+        for (int i = 1; i < nums.length; i++){
+            if(nums[i] != nums[uniqueIndex-1]){
+                nums[uniqueIndex++] = nums[i]; 
+            }
+        }return uniqueIndex;
     }
 }
