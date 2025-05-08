@@ -1,20 +1,15 @@
-// Last updated: 5/7/2025, 11:15:17 PM
+// Last updated: 5/7/2025, 11:22:08 PM
 class Solution {
-    public boolean isPalindrome(int x) {
-        if (x < 0) {
-            return false;
-        }
-        String s = String.valueOf(x);
-        int left = 0;
-        int right = s.length() - 1;
+    public String longestCommonPrefix(String[] strs) {
+        // base case:
+        if(strs.length == 0 || strs == null) return "";
 
-        while (left < right) {
-            if (s.charAt(left) != s.charAt(right)) {
-                return false;
+        String prefix = strs[0];
+        for(String s: strs){
+            while(!s.startsWith(prefix)){
+                prefix = prefix.substring(0, prefix.length()-1);
+                if(prefix.isEmpty()) return "";
             }
-            left++;
-            right--;
-        }
-        return true;
+        }return prefix;
     }
 }
