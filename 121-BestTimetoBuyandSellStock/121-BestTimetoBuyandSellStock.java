@@ -1,15 +1,20 @@
-// Last updated: 5/7/2025, 11:07:19 PM
+// Last updated: 5/7/2025, 11:15:17 PM
 class Solution {
-    public void reverseString(char[] s) {
+    public boolean isPalindrome(int x) {
+        if (x < 0) {
+            return false;
+        }
+        String s = String.valueOf(x);
         int left = 0;
-        int right = s.length- 1;
+        int right = s.length() - 1;
 
-        while (left < right){
-            char temp = s[left];
-            s[left] = s[right];
-            s[right] = temp;
+        while (left < right) {
+            if (s.charAt(left) != s.charAt(right)) {
+                return false;
+            }
             left++;
             right--;
         }
+        return true;
     }
 }
