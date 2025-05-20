@@ -1,17 +1,14 @@
-# Last updated: 5/20/2025, 3:06:53 PM
-class Solution(object):
-    def lengthOfLongestSubstring(self, s):
-        """
-        :type s: str
-        :rtype: int
-        """
-        resMap = {}
-        maxCount = 0
-        l = 0
+# Last updated: 5/20/2025, 3:19:24 PM
+class Solution:
+    def findMedianSortedArrays(self, nums1: List[int], nums2: List[int]) -> float:
+        
+        len1 = len(nums1)
+        len2 = len(nums2)
+        merged = nums1 + nums2
+        merged.sort()
 
-        for r in range(len(s)):
-            if s[r] in resMap:
-                l = max(l, resMap[s[r]]+1)
-            resMap[s[r]] = r
-            maxCount = max(maxCount, r - l+1)
-        return maxCount
+        totalLen = len1 + len2
+        if totalLen % 2 == 0:
+            return (merged[totalLen // 2 - 1] + merged[totalLen // 2]) / 2.0
+        else:
+            return merged[totalLen // 2]
