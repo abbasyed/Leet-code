@@ -1,4 +1,4 @@
-# Last updated: 5/17/2025, 10:45:43 AM
+# Last updated: 5/20/2025, 3:06:53 PM
 class Solution(object):
     def lengthOfLongestSubstring(self, s):
         """
@@ -6,12 +6,12 @@ class Solution(object):
         :rtype: int
         """
         resMap = {}
-        l = 0;
         maxCount = 0
+        l = 0
 
         for r in range(len(s)):
             if s[r] in resMap:
-                l = max(resMap[s[r]] + 1, l)
+                l = max(l, resMap[s[r]]+1)
             resMap[s[r]] = r
-            maxCount = max(maxCount, r - l + 1)
+            maxCount = max(maxCount, r - l+1)
         return maxCount
