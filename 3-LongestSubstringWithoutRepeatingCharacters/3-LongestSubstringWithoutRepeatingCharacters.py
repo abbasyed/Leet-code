@@ -1,19 +1,19 @@
-# Last updated: 5/20/2025, 3:32:17 PM
+# Last updated: 5/30/2025, 8:07:49 PM
 class Solution(object):
-    def findMedianSortedArrays(self, nums1, nums2):
+    def checkInclusion(self, s1, s2):
+        from collections import Counter
         """
-        :type nums1: List[int]
-        :type nums2: List[int]
-        :rtype: float
+        :type s1: str
+        :type s2: str
+        :rtype: bool
         """
-        res = nums1+nums2
-        res.sort()
+    
 
-        length = len(nums1)+len(nums2)
-        if length % 2 == 0:
-            return (res[length // 2 - 1] + res[length // 2]) / 2.0
-            
-        else:
-            return res[length // 2]
+        len_s1 = len(s1)
+        s1_count = Counter(s1)
 
-            
+        for i in range(len(s2) - len_s1 + 1):
+            window = s2[i:i + len_s1]
+            if Counter(window) == s1_count:
+                return True
+        return False
