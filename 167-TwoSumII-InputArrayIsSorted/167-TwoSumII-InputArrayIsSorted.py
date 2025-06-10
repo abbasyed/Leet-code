@@ -1,3 +1,4 @@
+# Last updated: 6/9/2025, 6:52:27 PM
 class Solution(object):
     def twoSum(self, numbers, target):
         """
@@ -5,15 +6,16 @@ class Solution(object):
         :type target: int
         :rtype: List[int]
         """
-        n = len(numbers)
-        l, r = 0, n - 1
+        left = 0
+        right = len(numbers)-1
 
-        while l < r:
-            currSum = numbers[l] + numbers[r]
-            if currSum > target:
-                r -= 1
-            elif currSum < target:
-                l += 1
+        while left < right:
+            curr = numbers[left] + numbers[right]
+            print(curr)
+            if curr == target:
+                return ([left+1, right+1])
+            elif curr > target:
+                right -= 1
             else:
-                return[l+1, r+1]
-        return []
+                left += 1
+        return -1
