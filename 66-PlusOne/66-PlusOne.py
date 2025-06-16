@@ -1,10 +1,15 @@
-# Last updated: 6/15/2025, 7:34:35 PM
+# Last updated: 6/15/2025, 7:40:46 PM
 class Solution(object):
     def plusOne(self, digits):
         """
         :type digits: List[int]
         :rtype: List[int]
         """
-        number = int("".join(map(str, digits)))
-        number += 1
-        return [int(digit) for digit in str(number)]
+        
+
+        for i in range(len(digits) - 1, -1, -1):
+            if digits[i] < 9:
+                digits[i] += 1
+                return digits
+            digits[i] = 0
+        return [1] + digits
