@@ -1,15 +1,22 @@
-# Last updated: 6/15/2025, 7:40:46 PM
+# Last updated: 6/17/2025, 5:25:44 AM
+# Definition for a binary tree node.
+# class TreeNode(object):
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
 class Solution(object):
-    def plusOne(self, digits):
+    def hasPathSum(self, root, targetSum):
         """
-        :type digits: List[int]
-        :rtype: List[int]
+        :type root: Optional[TreeNode]
+        :type targetSum: int
+        :rtype: bool
         """
-        
+        if not root:
+            return False
 
-        for i in range(len(digits) - 1, -1, -1):
-            if digits[i] < 9:
-                digits[i] += 1
-                return digits
-            digits[i] = 0
-        return [1] + digits
+        if not root.left and not root.right:
+            return root.val == targetSum
+        
+        return (self.hasPathSum(root.left, targetSum - root.val) or
+                self.hasPathSum(root.right, targetSum - root.val))
