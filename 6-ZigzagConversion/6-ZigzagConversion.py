@@ -1,22 +1,25 @@
-# Last updated: 7/15/2025, 6:39:21 PM
+# Last updated: 7/15/2025, 6:41:13 PM
 class Solution(object):
-    def convert(self, s, numRows):
+    def resultsArray(self, nums, k):
         """
-        :type s: str
-        :type numRows: int
-        :rtype: str
+        :type nums: List[int]
+        :type k: int
+        :rtype: List[int]
         """
-        if numRows == 1 or numRows >= len(s):
-            return s
+        result = []
 
-        rows = [''] * numRows
-        curr_row = 0
-        going_down = False
-
-        for char in s:
-            rows[curr_row] += char
-            if curr_row == 0 or curr_row == numRows - 1:
-                going_down = not going_down
-            curr_row += 1 if going_down else -1
-
-        return ''.join(rows)
+        for i in range(len(nums) - k + 1):
+            window = nums[i:i+k]
+        
+        # Check if sorted in ascending order
+            is_sorted = all(window[j] < window[j+1] for j in range(k - 1))
+        
+        # Check if all elements are consecutive
+            is_consecutive = max(window) - min(window) == k - 1 and len(set(window)) == k
+        
+            if is_sorted and is_consecutive:
+                result.append(max(window))
+            else:
+                result.append(-1)
+    
+        return result
